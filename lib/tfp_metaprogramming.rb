@@ -1,5 +1,7 @@
 require "tfp_metaprogramming/version"
 
 module TfpMetaprogramming
-  # Your code goes here...
+	 def self.check
+	 	"I'm working"
+	 end
 end
