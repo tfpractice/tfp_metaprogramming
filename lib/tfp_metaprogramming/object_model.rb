@@ -1,5 +1,3 @@
-# require "tfp_metaprogramming"
-
 module TfpMetaprogramming
   module ObjectModel
     def self.description

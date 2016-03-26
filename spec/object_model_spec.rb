@@ -1,6 +1,3 @@
-require 'spec_helper'
-
-
 describe TfpMetaprogramming::ObjectModel do
   describe '#check' do
     it 'responds to #check' do

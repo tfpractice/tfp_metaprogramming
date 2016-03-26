@@ -1,4 +1,3 @@
-require 'spec_helper'
 
 describe TfpMetaprogramming do
   it 'has a version number' do
