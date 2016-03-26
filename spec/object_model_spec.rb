@@ -4,8 +4,7 @@ describe TfpMetaprogramming::ObjectModel do
       expect(TfpMetaprogramming::ObjectModel).to respond_to(:description)
     end
     it 'returns "this section is dedicated..." ' do
-      expect(TfpMetaprogramming::ObjectModel.description).to eq( "this section is dedicated to investigating the ruby Object Model"
-                                                                 )
+      expect(TfpMetaprogramming::ObjectModel.description).to eq( "this section is dedicated to investigating the ruby Object Model")
     end
   end
 end

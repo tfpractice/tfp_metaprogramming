@@ -5,7 +5,6 @@ describe TfpMetaprogramming do
   end
   describe '#check' do
     it 'responds to #check' do
-      # expect(TfpMetaprogramming).to eq(true)
       expect(TfpMetaprogramming).to respond_to(:check)
     end
     it 'returns "Im working" ' do
