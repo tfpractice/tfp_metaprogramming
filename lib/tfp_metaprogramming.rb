@@ -1,6 +1,5 @@
 require "bundler/setup"
 require "tfp_metaprogramming/version"
-require "tfp_metaprogramming/object_model"
 
 module TfpMetaprogramming
   def self.check
@@ -13,5 +12,8 @@ module TfpMetaprogramming
 
 
 end
-# puts $:
 # puts TfpMetaprogramming.check
+
+require "tfp_metaprogramming/object_model"
+
+# puts $:

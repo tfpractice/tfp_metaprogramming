@@ -1,7 +1,3 @@
-require_relative "./object_model/monkey_patch"
-require_relative "./object_model/prepend"
-require_relative "./object_model/refinement"
-
 module TfpMetaprogramming
   module ObjectModel
     def self.description
@@ -9,3 +5,8 @@ module TfpMetaprogramming
     end
   end
 end
+
+
+require_relative "./object_model/monkey_patch"
+require_relative "./object_model/prepend"
+require_relative "./object_model/refinement"
