@@ -1,8 +1,7 @@
-# require_relative "../../meta_mod"
 require_relative 'i_primate'
 require_relative 'primate'
 
-# Namespaced String Class to be augmenting with Module
+# Namespaced String Class to be augmented with Module
 # inherits from Ruby Sting
 class TfpMetaprogramming::ObjectModel::String < String
   include TfpMetaprogramming::ObjectModel::IPrimate
