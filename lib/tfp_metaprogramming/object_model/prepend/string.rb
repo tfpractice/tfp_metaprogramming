@@ -1,23 +1,13 @@
 # require_relative "../../meta_mod"
-require_relative "i_primate"
-require_relative "primate"
+require_relative 'i_primate'
+require_relative 'primate'
 
-# module TfpMetaprogramming
-#   module ObjectModel
-#     class String < String
-#       include TfpMetaprogramming::ObjectModel::IPrimate
-#       prepend TfpMetaprogramming::ObjectModel::Primate
-#       # def initialize(args)
-
-#       # end
-
-
-#     end
-#   end
-# end
+# Namespaced String Class to be augmenting with Module
+# inherits from Ruby Sting
 class TfpMetaprogramming::ObjectModel::String < String
   include TfpMetaprogramming::ObjectModel::IPrimate
-  prepend TfpMetaprogramming::ObjectModel::Primate
 
-  
+  def prep_primate
+    self.class.prepend TfpMetaprogramming::ObjectModel::Primate
+  end
 end
