@@ -2,9 +2,9 @@ describe TfpMetaprogramming::ObjectModel::Primate do
   let(:primate) { TfpMetaprogramming::ObjectModel::Primate }
 
   describe '.show_nest' do
-    it 'shows the module nesting' do
+    it 'shows the module name due to inline nesting' do
       puts primate.show_nest
-      expect(primate.show_nest).to include(TfpMetaprogramming::ObjectModel)
+      expect(primate.show_nest).to include(TfpMetaprogramming::ObjectModel::Primate)
 
     end
 
