@@ -1,6 +1,6 @@
-describe TfpMetaprogramming::MetaMethods::CapsuleBreaker do
-  let(:bCapsule) { TfpMetaprogramming::MetaMethods::Capsule.new(15) }
-  let(:myBreaker) { TfpMetaprogramming::MetaMethods::CapsuleBreaker.new(bCapsule) }
+describe TfpMetaprogramming::MetaMethods::CapsuleBreaker::Breaker do
+  let(:bCapsule) { TfpMetaprogramming::MetaMethods::CapsuleBreaker::Capsule.new(15) }
+  let(:myBreaker) { TfpMetaprogramming::MetaMethods::CapsuleBreaker::Breaker.new(bCapsule) }
 
   it 'has a @capsule instance variable' do
     expect(myBreaker.instance_variables).to include(:@capsule)

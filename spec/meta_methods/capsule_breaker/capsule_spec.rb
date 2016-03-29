@@ -1,5 +1,5 @@
-describe TfpMetaprogramming::MetaMethods::Capsule do
-  let(:myCapsule)  { TfpMetaprogramming::MetaMethods::Capsule.new(40) }
+describe TfpMetaprogramming::MetaMethods::CapsuleBreaker::Capsule do
+  let(:myCapsule)  { TfpMetaprogramming::MetaMethods::CapsuleBreaker::Capsule.new(40) }
 
   describe '@mass' do
     it 'has a mass instance_variable' do
