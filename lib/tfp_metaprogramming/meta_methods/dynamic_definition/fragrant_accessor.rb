@@ -14,14 +14,12 @@ module TfpMetaprogramming
             flower.send("describe_#{name}")
           end
         end
+
         def self.applyMethods
           retrieve_description :name
           retrieve_description :summary
           retrieve_description :kingdom
         end
-
-
-
       end
     end
   end
