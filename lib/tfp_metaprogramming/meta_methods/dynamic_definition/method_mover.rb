@@ -3,8 +3,7 @@ module TfpMetaprogramming
   module MetaMethods
     module DynamicDefinition
       # removes Flower#freeze via Module#undef_method
-      class MethodMover
-
+      class MethodMover# < BasicObject
         attr_reader :flower
 
         def initialize(flower = TfpMetaprogramming::MetaMethods::DynamicDefinition::Flower.new )
