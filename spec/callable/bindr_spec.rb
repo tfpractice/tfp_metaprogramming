@@ -24,16 +24,10 @@ describe TfpMetaprogramming::Callable::Bindr do
       it 'exposes the local_flat_mvar scoped to the module' do
         # expect(myBindr.class.send(:local_variables)).to include(:local_bindr_cvar)
         puts myBindr.show_locals
-        puts myBindr.class.ancestors
+        # puts myBindr.class.ancestors
         expect(myBindr.show_locals).to include(:local_flat_mvar)
       end
     end
-
-
-
-
-
-
   end
   describe 'attributes' do
     it 'has a @num instance_variable' do
@@ -45,23 +39,18 @@ describe TfpMetaprogramming::Callable::Bindr do
     it 'has a @word instance_variable' do
       expect(myBindr.instance_variables).to include(:@word)
     end
-    # it 'has a local_bindr_cvar' do
-    # puts myBindr.class.send(:local_variables)
-    # expect(myBindr.class.send(:local_variables)).to include(:local_bindr_cvar)
-    # end
-
   end
   describe 'methods' do
-    #describe '#show_locals' do
-    #  it 'dynamically defines #show_locals method' do
-    #    expect(myBindr).to respond_to(:show_locals)
-    #  end
-    #  it 'exposes the local_bindr_cvar scoped to the class local variables' do
-    #    # expect(myBindr.class.send(:local_variables)).to include(:local_bindr_cvar)
-    #    puts myBindr.show_locals
-    #    puts myBindr.class.ancestors
-    #  end
-    #end
+    describe '#show_bindr_locals' do
+      it 'dynamically defines #show_bindr_locals method' do
+        expect(myBindr).to respond_to(:show_bindr_locals)
+      end
+      it 'exposes the local_bindr_cvar scoped to the class local variables' do
+        puts myBindr.show_bindr_locals
+        expect(myBindr.show_bindr_locals).to include(:local_bindr_cvar)
+        # puts myBindr.class.ancestors
+      end
+    end
     describe 'local_variables' do
       context 'when called from outside of #create_local_variable' do
         it 'excludes local_bindr_ivar ' do

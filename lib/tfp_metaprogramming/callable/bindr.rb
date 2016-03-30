@@ -14,9 +14,9 @@ module TfpMetaprogramming
 
       end
       local_bindr_cvar = 2
-      # define_method :show_locals do
-      #   local_variables
-      #   # end
+      define_method :show_bindr_locals do
+        local_variables
+      end
 
       # end      # def create_local_variable(lVal = 2)
       # local_bindr_ivar = lVal
