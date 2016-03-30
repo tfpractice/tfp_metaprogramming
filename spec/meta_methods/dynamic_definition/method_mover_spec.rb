@@ -3,7 +3,7 @@ describe TfpMetaprogramming::MetaMethods::DynamicDefinition::MethodMover do
   let(:myMover) { TfpMetaprogramming::MetaMethods::DynamicDefinition::MethodMover.new(mFlower) }
   describe 'attributes' do
     it 'has a @flower' do
-      expect(myMover.instance_variables).to include(:@flower)
+      expect(myMover.methods).to include(:flower)
     end
   end
   describe '#freezeable?' do

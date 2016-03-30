@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'tfp_metaprogramming/version'
 require 'tfp_metaprogramming/object_model'
 require 'tfp_metaprogramming/meta_methods'
+require 'tfp_metaprogramming/callable'
 
 module TfpMetaprogramming
   def self.check
