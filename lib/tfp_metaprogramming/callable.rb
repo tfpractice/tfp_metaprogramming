@@ -4,9 +4,9 @@ module TfpMetaprogramming
   # such as Blocks, Procs, and Lambdas
   module Callable
     module Closure;end
-    module ScopeFlattener;end
     class Bindr;end
   end
 end
 
-require_relative 'callable/bindr'
+# require_relative 'callable/bindr'
+require_relative 'callable/instance_evaluator'
