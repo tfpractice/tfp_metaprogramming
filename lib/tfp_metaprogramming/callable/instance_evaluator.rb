@@ -1,4 +1,5 @@
 require_relative 'bindr'
+# require_relative 'procs'
 module TfpMetaprogramming
   module Callable
     class InstanceEvaluator
@@ -43,8 +44,8 @@ module TfpMetaprogramming
       def execute_sum_bindr_num_and_evaluator_ivar
         bindr.instance_exec(ivar) do |ivar|
           result = "#{num+ivar} is the sum,
-      		because bindr num is #{num},
-      		and evaluator ivar is #{ivar}"
+          because bindr num is #{num},
+          and evaluator ivar is #{ivar}"
         end
       end
     end

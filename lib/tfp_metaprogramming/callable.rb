@@ -10,3 +10,4 @@ end
 
 # require_relative 'callable/bindr'
 require_relative 'callable/instance_evaluator'
+require_relative 'callable/procs'

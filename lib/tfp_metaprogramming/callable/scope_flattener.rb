@@ -1,7 +1,12 @@
 module TfpMetaprogramming
   module Callable
     ScopeFlattener = Module.new do
+      attr_accessor :newVar
+
+      @newVar = "hello I am hte newVar"
+
       local_flat_mvar =3
+
       define_method :show_locals do
         local_variables
       end
