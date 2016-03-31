@@ -17,7 +17,7 @@ module TfpMetaprogramming
       end
       #@!group local_class_variables
       local_bindr_cvar = 2
-      phantom = 'the Phantom of the Opera'
+      phantom =  'Phantom of the Opera'
       #@!endgroup local_class_variables
 
       # a dynamically defined method

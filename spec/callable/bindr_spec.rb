@@ -57,17 +57,23 @@ describe TfpMetaprogramming::Callable::Bindr do
     end
   end
   describe 'methods' do
-    describe 'local_phantom' do
-
+    describe 'gated_phantom' do
       it 'assigns phantom to "Sith Lord" in the method' do
-        expect(myBindr.local_phantom).to eq("Sith Lord")
+        expect(myBindr.gated_phantom).to eq("Sith Lord")
       end
       context 'when called from scope with phantom already defined ' do
-        it 'uses the environment phantom and ignores the method-defined phantom' do
+        it 'uses the environment phantom (Phand ignores the method-defined phantom' do
           phantom = "Casper"
-          result =myBindr.local_phantom { |catchphrase| "I am the #{phantom}, #{catchphrase}" }
+          result = myBindr.gated_phantom { |catchphrase| "I am the #{phantom}, #{catchphrase}" }
+          puts result
           expect(result).to start_with("I am the Casper")
         end
+      end
+    end
+    describe '#scoped_phantom' do
+      it 'calls gated_phantom with class local phantom (Phantom of the Opera)' do
+        puts myBindr.scoped_phantom
+        expect(myBindr.scoped_phantom).to start_with("I am the Phantom of the Opera")
       end
     end
   end
