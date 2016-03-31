@@ -57,36 +57,49 @@ describe TfpMetaprogramming::Callable::Bindr do
     end
   end
   describe 'methods' do
-    describe '#show_bindr_locals' do
-      it 'dynamically defines #show_bindr_locals method' do
-        expect(myBindr).to respond_to(:show_bindr_locals)
+    describe 'local_phantom' do
+
+      it 'assigns phantom to "Sith Lord" in the method' do
+        expect(myBindr.local_phantom).to eq("Sith Lord")
       end
-      it 'exposes the local_bindr_cvar scoped to the class local variables' do
-        puts myBindr.show_bindr_locals
-        expect(myBindr.show_bindr_locals).to include(:local_bindr_cvar)
-        # puts myBindr.class.ancestors
+      context 'when called from scope with phantom already defined ' do
+        it 'uses the environment phantom and ignores the method-defined phantom' do
+          phantom = "Casper"
+          result =myBindr.local_phantom { |catchphrase| "I am the #{phantom}, #{catchphrase}" }
+          expect(result).to start_with("I am the Casper")
+        end
       end
     end
-    describe 'local_variables' do
-      context 'when called from outside of #create_local_variable' do
-        it 'excludes local_bindr_ivar ' do
-          expect(myBindr.send(:local_variables)).not_to include(:local_bindr_ivar)
+  end
+  describe '#show_bindr_locals' do
+    it 'dynamically defines #show_bindr_locals method' do
+      expect(myBindr).to respond_to(:show_bindr_locals)
+    end
+    it 'exposes the local_bindr_cvar scoped to the class local variables' do
+      puts myBindr.show_bindr_locals
+      expect(myBindr.show_bindr_locals).to include(:local_bindr_cvar)
+      # puts myBindr.class.ancestors
+    end
+  end
+  describe 'local_variables' do
+    context 'when called from outside of #create_local_variable' do
+      it 'excludes local_bindr_ivar ' do
+        expect(myBindr.send(:local_variables)).not_to include(:local_bindr_ivar)
 
-        end
-        context 'when called from within #create_local_variable' do
-          describe '#create_local_variable' do
-            it 'exposes a local_bindr_ivar variable scoped to the method' do
-              expect(myBindr.create_local_variable).to include(:local_bindr_ivar)
-            end
+      end
+      context 'when called from within #create_local_variable' do
+        describe '#create_local_variable' do
+          it 'exposes a local_bindr_ivar variable scoped to the method' do
+            expect(myBindr.create_local_variable).to include(:local_bindr_ivar)
           end
         end
       end
     end
-    describe 'block_to_basic_yielder' do
-      context 'when passed a block' do
-        it 'returns (3*@num) the sum of @num and the retun val of @num + @num' do
-          expect(myBindr.block_to_basic_yielder).to eq(45)
-        end
+  end
+  describe 'block_to_basic_yielder' do
+    context 'when passed a block' do
+      it 'returns (3*@num) the sum of @num and the retun val of @num + @num' do
+        expect(myBindr.block_to_basic_yielder).to eq(45)
       end
     end
   end
