@@ -14,9 +14,6 @@ module TfpMetaprogramming
           @flower = flower
         end
 
-        # def flower
-        # @flower
-        # end
         # delegates missing methods to @flower
         # if @flower respnds to that call
         # otherwise calls method_missing up

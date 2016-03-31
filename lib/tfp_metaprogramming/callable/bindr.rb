@@ -11,30 +11,17 @@ module TfpMetaprogramming
         @word = word
         @num = num
         @info = info
-
       end
+
       local_bindr_cvar = 2
+
       define_method :show_bindr_locals do
         local_variables
       end
 
-      # end      # def create_local_variable(lVal = 2)
-      # local_bindr_ivar = lVal
-      # show_locals
-      # local_variables
-      # end
-      #
-      #
-      # def show_locals
-      # local_variables
-      # end
-
-      def block_to_basic_yielder#(num1= num, num2 = num)
+      def block_to_basic_yielder
         basic_yielder(num, num){ num + num}
-
       end
-
-
     end
   end
 end

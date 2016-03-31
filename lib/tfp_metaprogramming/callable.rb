@@ -4,6 +4,7 @@ module TfpMetaprogramming
   # such as Blocks, Procs, and Lambdas
   module Callable
     module Closure;end
+    module ScopeFlattener;end
     class Bindr;end
   end
 end

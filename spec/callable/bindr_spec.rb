@@ -17,12 +17,28 @@ describe TfpMetaprogramming::Callable::Bindr do
     it 'includes the ScopeFlattener Module in its ancestor chain' do
       expect(myBindr.class.ancestors).to include(TfpMetaprogramming::Callable::ScopeFlattener)
     end
+    describe '#mvar' do
+      it 'returns the modules local_flat_mvar to the Bindr instance' do
+        expect(myBindr.mvar).to eq(3)
+      end
+    end
+    describe '#increment_mvar' do
+      it 'increments the modules local_flat_mvar by added param' do
+        expect { myBindr.increment_mvar(4) }.to change{myBindr.mvar}.by(4)
+      end
+    end
+    describe '#reset_mvar' do
+      it 'resets the modules local_flat_mvar 3' do
+        myBindr.increment_mvar(4)
+        prevMVar = myBindr.mvar
+        expect { myBindr.reset_mvar }.to change{myBindr.mvar}.from(prevMVar).to(3)
+      end
+    end
     describe '#show_locals' do
       it 'dynamically defines #show_locals method' do
         expect(myBindr).to respond_to(:show_locals)
       end
       it 'exposes the local_flat_mvar scoped to the module' do
-        # expect(myBindr.class.send(:local_variables)).to include(:local_bindr_cvar)
         puts myBindr.show_locals
         # puts myBindr.class.ancestors
         expect(myBindr.show_locals).to include(:local_flat_mvar)
