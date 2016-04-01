@@ -5,7 +5,7 @@ describe TfpMetaprogramming::Callable::Procs::Procster do
       expect(myProcster.instance_variables).to include(:@num)
     end
     it 'has an @info' do
-      expect(myProcster.instance_variables).to include(:@num)
+      expect(myProcster.instance_variables).to include(:@info)
     end
   end
   describe 'Arity module' do
@@ -13,8 +13,31 @@ describe TfpMetaprogramming::Callable::Procs::Procster do
       expect(myProcster.class.ancestors).to include(TfpMetaprogramming::Callable::Procs::Arity)
     end
     describe '#arity_proc' do
-      it 'returns a proc taking two args' do
+      it 'returns a proc ' do
         expect(myProcster.arity_proc).to be_a_kind_of(Proc)
+      end
+      it 'takes two args' do
+        expect(myProcster.arity_proc.arity).to be(2)
+      end
+    end
+    describe '#arity_lambda' do
+      it 'returns a lambda' do
+        expect(myProcster.arity_lambda.lambda?).to be(true)
+      end
+      it 'takes two args' do
+        expect(myProcster.arity_proc.arity).to be(2)
+      end
+    end
+    describe 'call_for_arity' do
+      context 'when called with arity_proc' do
+        it 'returns an array of length 2' do
+          expect(myProcster.call_for_arity(&myProcster.arity_proc)).to include(1)
+        end
+      end
+      context 'when called with arity_lamda' do
+        it 'raises an error' do
+          expect { myProcster.call_for_arity(&myProcster.arity_lambda) }.to raise_error(ArgumentError)
+        end
       end
     end
   end
