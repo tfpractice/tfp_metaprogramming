@@ -41,6 +41,11 @@ describe TfpMetaprogramming::Callable::Procs::Procster do
       end
     end
   end
+  describe 'Returns module' do
+    it 'includes Callable::Procs::Returns in its ancestor chain' do
+      expect(myProcster.class.ancestors).to include(TfpMetaprogramming::Callable::Procs::Returns)
+    end
+  end
   describe 'ProcMod module' do
     it 'includes Callable::Procs::ProcMod in its ancestor chain' do
       expect(myProcster.class.ancestors).to include(TfpMetaprogramming::Callable::Procs::ProcMod)
