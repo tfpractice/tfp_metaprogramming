@@ -45,6 +45,40 @@ describe TfpMetaprogramming::Callable::Procs::Procster do
     it 'includes Callable::Procs::Returns in its ancestor chain' do
       expect(myProcster.class.ancestors).to include(TfpMetaprogramming::Callable::Procs::Returns)
     end
+    describe 'return_proc' do
+      it 'returns a proc' do
+        expect(myProcster.return_proc).to be_a_kind_of(Proc)
+      end
+      context 'when called' do
+        it 'raises a LocalJumpError' do
+          expect { myProcster.return_proc.call }.to raise_error(LocalJumpError)
+        end
+      end
+
+    end
+    describe 'return_lambda' do
+      it 'returns a proc' do
+        expect(myProcster.return_lambda).to be_a_kind_of(Proc)
+      end
+      context 'when called' do
+        it 'returns 20' do
+          expect(myProcster.return_lambda.call).to eq(20)
+
+        end
+      end
+    end
+    describe '#double_callable' do
+      context 'when called bith lambda' do
+        it 'returns 40' do
+          expect(myProcster.double_callable(&myProcster.return_lambda)).to eq(40)
+        end
+      end
+      context 'when called with return_proc' do
+        it 'raises a LocalJumpError' do
+          expect { myProcster.double_callable(&myProcster.return_proc) }.to raise_error(LocalJumpError)
+        end
+      end
+    end
   end
   describe 'ProcMod module' do
     it 'includes Callable::Procs::ProcMod in its ancestor chain' do

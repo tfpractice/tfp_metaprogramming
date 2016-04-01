@@ -4,7 +4,7 @@ module TfpMetaprogramming
     module Procs
       module Returns
         def return_proc
-          proc { return 20}
+          p = Proc.new { return 20}
         end
         def return_lambda
           -> { return 20 }
