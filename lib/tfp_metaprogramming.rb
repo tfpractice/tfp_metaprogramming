@@ -3,6 +3,7 @@ require 'tfp_metaprogramming/version'
 require 'tfp_metaprogramming/object_model'
 require 'tfp_metaprogramming/meta_methods'
 require 'tfp_metaprogramming/callable'
+require 'tfp_metaprogramming/meta_class'
 
 module TfpMetaprogramming
   def self.check
