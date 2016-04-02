@@ -5,7 +5,7 @@ describe TfpMetaprogramming::MetaClass::ClassModifier do
   describe 'add_new_method_to_class' do
     context 'when provided a class receivingClass = ..::ModClass' do
       context 'before called' do
-        it 'excludes #report_new_method from receivingClass' do
+        it 'excludes #report_new_method from receivingClass methods' do
           expect(instanceReceiver.methods).not_to include(:report_new_method)
         end
       end

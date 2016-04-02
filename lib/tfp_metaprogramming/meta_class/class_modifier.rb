@@ -8,7 +8,6 @@ module TfpMetaprogramming
           def report_new_method
             'This method comes from the ClassModifier module'
           end
-
         end
       end
     end
