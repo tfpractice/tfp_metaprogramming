@@ -1,11 +1,8 @@
+require_relative 'super_proxy'
 module TfpMetaprogramming
   module MetaClass
-    # c_inline = class InlineClass
-    # self
-    # end
-    #
-    # self.define_method :c_inline do
-    # c_inline
+    # define_method :create_inline_class do
+    # c = Class.new(SuperProxy)
     # end
   end
 end
