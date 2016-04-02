@@ -8,6 +8,11 @@ describe TfpMetaprogramming::MetaClass::InlineClass do
       expect(iCLass.ancestors).to include(TfpMetaprogramming::MetaClass::SuperProxy )
     end
   end
+  describe '#inline_method' do
+    it 'returns a string that starts with "I am the inline_method"' do
+      expect(myInline.inline_method).to start_with('I am the inline_method')
+    end
+  end
   describe 'SuperProxy methods' do
     it 'has a @num' do
       expect(myInline.instance_variables).to include(:@num)
@@ -18,5 +23,4 @@ describe TfpMetaprogramming::MetaClass::InlineClass do
       end
     end
   end
-
 end
