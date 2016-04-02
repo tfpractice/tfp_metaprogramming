@@ -5,6 +5,8 @@ module TfpMetaprogramming
       def initialize(num: 5)
         @num = num
       end
+      @class_ivar = 25
+      @@c_var = 20
 
 
     end
