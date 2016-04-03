@@ -31,8 +31,6 @@ describe TfpMetaprogramming::MetaClass::Macros::PackWolf do
           end
         end
       end
-
-
     end
     describe '#new_howl' do
       it 'returns a string that ends with "howling"' do
