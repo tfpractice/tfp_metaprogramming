@@ -7,4 +7,4 @@ module TfpMetaprogramming
   end
 end
 
-require_relative './macros/lone_wolf'
+require_relative './macros/pack_wolf'
