@@ -19,7 +19,7 @@ describe TfpMetaprogramming::MetaClass::Singletons::Singlizer do
           expect(sample.methods).to include(:monogamize)
         end
         it 'does not add #monogamize to any other' do
-          expect(pristine_sample.methods).not_to include(:monogamize)
+          expect(pristine_sample.singleton_methods).not_to include(:monogamize)
         end
         describe '#monogamize' do
           it 'concatenates " I am monogamous" to the given string' do
@@ -42,7 +42,7 @@ describe TfpMetaprogramming::MetaClass::Singletons::Singlizer do
           myMod.nest_mingle_method_onto_single_string(minglingString)
         end
         it 'nested def adds singleton method #mingle particular string' do
-          expect(minglingString.methods).to include(:mingle)
+          expect(minglingString.singleton_methods).to include(:mingle)
         end
         it 'does not add #mingle to any other' do
           expect(pristine_sample.methods).not_to include(:mingle)
