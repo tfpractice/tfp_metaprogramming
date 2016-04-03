@@ -4,6 +4,5 @@ describe TfpMetaprogramming::MetaClass::Singletons::SingleString do
     it 'includes Ruby String in its ancestor chain' do
       expect(myString.class.ancestors).to include(String)
     end
-
   end
 end
