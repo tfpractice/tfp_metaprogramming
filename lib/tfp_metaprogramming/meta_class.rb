@@ -4,3 +4,4 @@ end
 
 require_relative './meta_class/class_modifier'
 require_relative './meta_class/inline_class'
+require_relative './meta_class/singletons'

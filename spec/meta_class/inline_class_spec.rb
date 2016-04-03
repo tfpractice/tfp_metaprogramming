@@ -1,10 +1,7 @@
-
 describe TfpMetaprogramming::MetaClass do
   TfpMetaprogramming::MetaClass.create_inline_class
 
   describe TfpMetaprogramming::MetaClass::InlineClass do
-
-
     let(:iCLass) {   TfpMetaprogramming::MetaClass::InlineClass }
     let(:myInline) { TfpMetaprogramming::MetaClass::InlineClass.new }
     describe '.ancestors' do
