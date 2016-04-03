@@ -9,15 +9,15 @@ describe TfpMetaprogramming::MetaClass::Singletons do
   describe '#add_my_singleton_to_single_string' do
     context 'before called' do
       it 'excludes :my_singleton from SingleString#methods' do
-        sClass = TfpMetaprogramming::MetaClass::Singletons::SingleString
-        expect(sClass.methods).not_to include(:my_singleton)
+        s_class = TfpMetaprogramming::MetaClass::Singletons::SingleString
+        expect(s_class.methods).not_to include(:my_singleton)
       end
     end
     context 'after called' do
       it 'includes :my_singleton in SingleString#methods' do
         mySingleton.add_my_singleton_to_single_string
-        sClass = TfpMetaprogramming::MetaClass::Singletons::SingleString
-        expect(sClass.methods).to include(:my_singleton)
+        s_class = TfpMetaprogramming::MetaClass::Singletons::SingleString
+        expect(s_class.methods).to include(:my_singleton)
       end
     end
   end

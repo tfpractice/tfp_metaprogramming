@@ -1,9 +1,10 @@
-require_relative 'singlizer'
 module TfpMetaprogramming
   module MetaClass
     module Singletons
-      class SingleString < String
+      class LoneWolf
+        def initialize(args)
 
+        end
 
 
       end
