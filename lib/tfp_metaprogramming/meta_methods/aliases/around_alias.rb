@@ -12,7 +12,7 @@ module TfpMetaprogramming
 
         # aliases #around_alias to preserve original
         # functionality in case of overwrite
-        alias :convolutions :around_espionage
+        alias_method :convolutions, :around_espionage
       end
     end
   end
