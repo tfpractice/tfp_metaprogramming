@@ -1,5 +1,6 @@
 require_relative 'around_alias'
 require_relative 'spy_refinement'
+require_relative 'prepended_wig'
 
 module TfpMetaprogramming
   module MetaMethods
@@ -7,6 +8,9 @@ module TfpMetaprogramming
       class SydneyBristow
         include AroundAlias
         using SpyRefinement
+        def self.prepend_wig
+          prepend PrependedWig
+        end
 
         def initialize(occupation: 'spy', hobby: 'throwing fierce lqqks')
           @occupation, @hobby = occupation, hobby

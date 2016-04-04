@@ -8,40 +8,47 @@ describe TfpMetaprogramming::MetaMethods::Aliases::SydneyBristow do
       expect(myBristow.instance_variables).to include(:@hobby)
     end
   end
-
   describe '#wig' do
-    it 'returns a string ending with "regular wig"' do
-      expect(myBristow.wig).to end_with('regular wig.')
+    context 'when called from outside of the class (not using Aliases::SpyRefinement)' do
+      it 'returns a string ending with "regular wig"' do
+        expect(myBristow.wig).to end_with('regular wig.')
+      end
     end
-  end
-  describe '#call_wig' do
-    context 'it calls the SpyRefinement #wig method form withing the class' do
-
-
-      it 'returns a string ending with "refined wig"' do
-        # puts myBristow.wig
-        puts myBristow.class.ancestors
-        expect(myBristow.call_wig).to end_with('refined wig')
+    context 'when called from within the class (where using Aliases::SpyRefinement is called)' do
+      describe '#call_wig' do
+        context 'it calls the SpyRefinement #wig method form withing the class' do
+          it 'returns a string ending with "refined wig"' do
+            puts myBristow.call_wig
+            expect(myBristow.call_wig).to end_with('refined wig')
+          end
+        end
+      end
+    end
+    describe  '.prepend_wig' do
+      context 'before callled' do
+        describe 'ancestors' do
+          it 'excludes Aliases::PrependedWig' do
+            expect(myBristow.class.ancestors).not_to include( TfpMetaprogramming::MetaMethods::Aliases::PrependedWig)
+          end
+        end
+      end
+      context 'after callled' do
+        before(:each) do
+          myBristow.class.prepend_wig
+        end
+        describe 'ancestors' do
+          it 'includes Aliases::PrependedWig' do
+            expect(myBristow.class.ancestors).to include( TfpMetaprogramming::MetaMethods::Aliases::PrependedWig)
+          end
+        end
+        describe '#wig' do
+          it 'returns a string starting with "a cleaner way" ' do
+            expect(myBristow.wig).to start_with('a cleaner way')
+          end
+        end
       end
     end
   end
-
-  # describe '.apply_spy_refinement' do
-  # context 'before called' do
-  #
-  # end
-  # context 'after called' do
-  # before(:each) do
-  # myBristow.class.apply_spy_refinement
-  # end
-  #
-  #
-  #
-  #
-  #
-  #
-  # end
-  # end
   describe 'included modules' do
     describe TfpMetaprogramming::MetaMethods::Aliases::AroundAlias do
       it 'appears in SydneyBristows ancestor chain' do

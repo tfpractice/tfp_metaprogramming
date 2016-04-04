@@ -5,7 +5,7 @@ module TfpMetaprogramming
       module SpyRefinement
         refine SydneyBristow do
           def wig
-            'this is my refined wig'
+            super << 'this is my refined wig'
           end
         end
       end
