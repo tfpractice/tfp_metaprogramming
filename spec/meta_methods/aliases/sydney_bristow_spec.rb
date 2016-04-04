@@ -1,6 +1,5 @@
 describe TfpMetaprogramming::MetaMethods::Aliases::SydneyBristow do
   let(:myBristow) { TfpMetaprogramming::MetaMethods::Aliases::SydneyBristow.new }
-
   describe 'instance_variables' do
     it 'has an @ocupation' do
       expect(myBristow.instance_variables).to include(:@occupation)
@@ -10,6 +9,39 @@ describe TfpMetaprogramming::MetaMethods::Aliases::SydneyBristow do
     end
   end
 
+  describe '#wig' do
+    it 'returns a string ending with "regular wig"' do
+      expect(myBristow.wig).to end_with('regular wig.')
+    end
+  end
+  describe '#call_wig' do
+    context 'it calls the SpyRefinement #wig method form withing the class' do
+
+
+      it 'returns a string ending with "refined wig"' do
+        # puts myBristow.wig
+        puts myBristow.class.ancestors
+        expect(myBristow.call_wig).to end_with('refined wig')
+      end
+    end
+  end
+
+  # describe '.apply_spy_refinement' do
+  # context 'before called' do
+  #
+  # end
+  # context 'after called' do
+  # before(:each) do
+  # myBristow.class.apply_spy_refinement
+  # end
+  #
+  #
+  #
+  #
+  #
+  #
+  # end
+  # end
   describe 'included modules' do
     describe TfpMetaprogramming::MetaMethods::Aliases::AroundAlias do
       it 'appears in SydneyBristows ancestor chain' do
@@ -34,7 +66,6 @@ describe TfpMetaprogramming::MetaMethods::Aliases::SydneyBristow do
       end
     end
   end
-
   describe '#throw_fierce_lqqks' do
     it 'returns a string ending with "realness"' do
       expect(myBristow.throw_fierce_lqqks).to end_with('realness')
@@ -49,5 +80,4 @@ describe TfpMetaprogramming::MetaMethods::Aliases::SydneyBristow do
       end
     end
   end
-
 end
