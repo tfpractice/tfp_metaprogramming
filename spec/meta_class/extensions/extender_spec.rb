@@ -35,4 +35,31 @@ describe TfpMetaprogramming::MetaClass::Extensions::Extender do
       end
     end
   end
+  describe 'methods' do
+    describe '#extend_instance' do
+      context 'when given an instance :anInstance' do
+        context 'before_called' do
+          it 'doesnt respond to #extended_i_method' do
+            expect(anInstance).not_to respond_to(:extended_i_method)
+          end
+        end
+        context 'after called' do
+          before(:each) do
+            anInstance.extend_instance
+          end
+          it 'adds #extended_i_method to anInstance singleton_menthods ' do
+            expect(anInstance.singleton_methods).to include(:extended_i_method)
+          end
+          describe 'Eextended_i_method' do
+            it 'responds to #extended_i_method' do
+              expect(anInstance).to respond_to(:extended_i_method)
+            end
+            it 'returns a string ending with "instance"' do
+              expect(anInstance.extended_i_method).to end_with('instance')
+            end
+          end
+        end
+      end
+    end
+  end
 end

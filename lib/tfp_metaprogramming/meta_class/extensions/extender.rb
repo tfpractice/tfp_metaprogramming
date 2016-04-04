@@ -12,6 +12,10 @@ module TfpMetaprogramming
         def initialize(num: 40)
           @num = num
         end
+
+        def extend_instance
+          self.extend ViaExtend
+        end
       end
     end
   end
