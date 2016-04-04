@@ -3,7 +3,6 @@ module TfpMetaprogramming
     module Aliases
       # Handles aliasing a method that SydneyBristow will override
       module AroundAlias
-
         # outputs text describing an around alias
         def around_espionage
           'I demonstrate the complicated nature
@@ -14,7 +13,6 @@ module TfpMetaprogramming
         # aliases #around_alias to preserve original
         # functionality in case of overwrite
         alias :convolutions :around_espionage
-
       end
     end
   end
