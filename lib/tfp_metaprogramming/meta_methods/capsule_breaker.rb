@@ -3,8 +3,8 @@ module TfpMetaprogramming
     # Leverages Ruby's dynamic_dispatch to
     # break encapsulation on the @capsule object
     module CapsuleBreaker
-      class Capsule;end
-      class Breaker;end
+      class Capsule; end
+      class Breaker; end
     end
   end
 end
