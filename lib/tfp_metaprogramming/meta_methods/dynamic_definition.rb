@@ -1,16 +1,17 @@
 module TfpMetaprogramming
   module MetaMethods
+    # a namespace exploring various
+    # techniques foir defining methods
     module DynamicDefinition
+      # shows the nesting of the current module
+      # @return [Array]
       def self.show_nest
         Module.nesting
       end
-      class Flower;end
-      class SmellyAccesssor;end
-      class FragrantAccessor;end
-      class DynamicProxy;end
-      # puts "showing DynaDef contants"
-      # puts constants
-
+      class Flower; end
+      class SmellyAccesssor; end
+      class FragrantAccessor; end
+      class DynamicProxy; end
     end
   end
 end
