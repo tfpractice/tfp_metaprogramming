@@ -3,32 +3,31 @@ require_relative 'flower'
 module TfpMetaprogramming
   module MetaMethods
     module DynamicDefinition
-      # uses method_missing?  to implement
-      # call flower description methods
+      # uses method_missing? to call
+      # flower description methods
       # as ghost methods
       class DynamicProxy
-        #sets a #flower method to access @flower
         attr_reader :flower
 
-        def initialize(flower = TfpMetaprogramming::MetaMethods::DynamicDefinition::Flower.new() )
+        def initialize(flower = TfpMetaprogramming::MetaMethods::DynamicDefinition::Flower.new )
           @flower = flower
         end
 
         # delegates missing methods to @flower
-        # if @flower respnds to that call
+        # if @flower respnds to that call.
         # otherwise calls method_missing up
         # the ancestor chain (cref)
         #
-        # @param [String,Symbol] mName name of method
-        def method_missing(mName)
-          super if !@flower.respond_to?(mName.to_sym)
-          @flower.send(mName.to_sym)
+        # @param [String,Symbol] m_name name of method
+        def method_missing(m_name)
+          super if !@flower.respond_to?(m_name.to_sym)
+          @flower.send(m_name.to_sym)
         end
 
         # ensures that ghost methods
         # can be called on this object
-        def respond_to_missing?(mName, include_private=false)
-          @flower.respond_to?(mName) || super
+        def respond_to_missing?(m_name, include_private = false)
+          @flower.respond_to?(m_name) || super
         end
       end
     end
