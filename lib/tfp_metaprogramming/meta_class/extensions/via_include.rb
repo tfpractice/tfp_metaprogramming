@@ -7,6 +7,7 @@ module TfpMetaprogramming
         # applies an instance method to
         # the singleton class of Extensions::Extender
         # therby functioning as a class method
+        # @return [String]
         def included_c_method
           'I am the class method defined in a module,
              and applied to the receiver via include'
