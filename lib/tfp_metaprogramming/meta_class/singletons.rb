@@ -8,6 +8,8 @@ module TfpMetaprogramming
       # using  def Obj.method, adds
       # #my_singleton to Singletons::SingleSting
       def self.add_my_singleton_to_single_string
+        # describes class as having a new singleton_method
+        # @return [String]
         def SingleString.my_singleton
           'I am the my_singleton method defined in the singletons module'
         end
